@@ -27,6 +27,9 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 
-Route::get('/depart', function () {
-    return view('depart.index');
-});
+Route::get('/depart', [DepartController::class, 'index']);
+
+
+Route::get('/depart/create', [DepartController::class, 'create']);
+
+Route::post('/depart', [DepartController::class, 'store']);
