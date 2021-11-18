@@ -1,35 +1,45 @@
 <x-layout>
     <div class="flex flex-col items-center mt-4">
-        <h1 class="mb-4 text-2xl font-semibold">Departamentos</h1>
+        <h1 class="mb-4 text-2xl font-semibold">Empleados</h1>
         <div class="border border-gray-200 shadow">
             <table>
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Denominación
+                            Nombre
                         </th>
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Localidad
+                            Fecha Alta
                         </th>
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Editar
+                            Salario
                         </th>
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Borrar
+                            Departamento
                         </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @foreach ($departamentos as $depart)
+                    @foreach ($empleados as $emple)
                         <tr class="whitespace-nowrap">
                             <td class="px-6 py-4">
                                 <div class="text-sm text-gray-900">
-                                    {{ $depart->denominacion }}
+                                    {{ $emple->nombre }}
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div class="text-sm text-gray-900">
-                                    {{ $depart->localidad }}
+                                    {{ $emple->fecha_alt }}
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">
+                                    {{ $emple->salario }}
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">
+                                    {{ $emple->depart_id }}
                                 </div>
                             </td>
                             <td class="px-6 py-4">
