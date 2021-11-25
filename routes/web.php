@@ -33,7 +33,8 @@ Route::get('/depart', [DepartController::class, 'index']);
 
 Route::get('/depart/create', [DepartController::class, 'create']);
 
-Route::post('/depart/store', [DepartController::class, 'store']);
+Route::post('/depart', [DepartController::class, 'store'])
+    ->name('depart.store');
 
 Route::get('/emple', [EmpleController::class, 'index']);
 

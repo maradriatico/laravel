@@ -17,12 +17,11 @@ class DepartController extends Controller
 
     public function create(){
 
-        return 'Hola';
-
+        return view('depart.create');
     }
 
     public function store()
     {
-        // ahahi
+        return view('depart.store');
     }
 }
