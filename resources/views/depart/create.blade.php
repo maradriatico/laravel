@@ -1,9 +1,8 @@
 <x-layout>
-    {{-- <form action="{{ route('depart.store', [], false) }}" method="POST">
+    <form action="{{ route('depart.store', [], false) }}" method="POST">
         <x-depart.form
             :denominacion="''"
             :localidad="''"/>
-    </form> --}}
-    Aqui creare departamentos
+    </form>
 
 </x-layout>
