@@ -40,6 +40,6 @@ Route::get('/emple', [EmpleController::class, 'index']);
 
 Route::get('/emple/create', [EmpleController::class, 'create']);
 
-Route::post('/emple/store', [EmpleController::class, 'store']);
-
+Route::post('/emple', [EmpleController::class, 'store'])
+    ->name('emple.store');
 

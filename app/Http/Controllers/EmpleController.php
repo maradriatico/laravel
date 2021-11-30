@@ -16,11 +16,18 @@ class EmpleController extends Controller
     }
 
     public function create(){
-        return 'Que pasa?';
+
+        $empleado = (object) [
+            'nombre' => null,
+            'fecha_alt' => null,
+            'salario' => null,
+            'depart_id' => null,
+        ];
+
+        return view('emple.create', [
+            'empleado' => $empleado,
+        ]);
     }
 
-    public function store()
-    {
-        // ahahi
-    }
+
 }

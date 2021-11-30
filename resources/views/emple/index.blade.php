@@ -54,6 +54,9 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
+                <a href="/emple/create" class="mt-4 text-blue-900 hover:underline">Insertar un nuevo empleado</a>
+            </div>
         </div>
     </div>
 </x-layout>
