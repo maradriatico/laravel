@@ -29,5 +29,29 @@ class EmpleController extends Controller
         ]);
     }
 
+    public function store()
+    {   $validados = $this->validar();
+
+        DB::table('emple')->insert([
+            'nombre' => $validados['nombre'],
+            'salario' => $validados['salario'],
+            'depart_id' => $validados['depart_id'],
+        ]);
+
+        return redirect('/emple')
+            ->with('success', 'Empleado insertado con éxito.');
+
+    }
+
+    private function validar()
+    {
+        $validados = request()->validate([
+            'nombre' => 'required|max:255',
+            'salario' => 'required|numeric:6,2',
+            'depart_id' => 'required'
+        ]);
+        return $validados;
+
+    }
 
 }

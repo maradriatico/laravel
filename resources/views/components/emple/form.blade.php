@@ -14,14 +14,28 @@
     @enderror
 </div>
 <div class="mb-6">
-    <label for="fecha_alt"
-        class="text-sm font-medium text-gray-900 block mb-2 @error('fecha_alt') text-red-500 @enderror">
-        fecha_alt
+    <label for="salario"
+        class="text-sm font-medium text-gray-900 block mb-2 @error('salario') text-red-500 @enderror">
+        Salario
     </label>
-    <input type="text" name="fecha_alt" id="fecha_alt"
-        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('fecha_alt') border-red-500 @enderror"
-        value="{{ old('fecha_alt', $empleado->fecha_alt) }}">
-    @error('fecha_alt')
+    <input type="text" name="salario" id="salario"
+        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('salario') border-red-500 @enderror"
+        value="{{ old('salario', $empleado->salario) }}">
+    @error('salario')
+        <p class="text-red-500 text-sm mt-1">
+            {{ $message }}
+        </p>
+    @enderror
+</div>
+<div class="mb-6">
+    <label for="depart_id"
+        class="text-sm font-medium text-gray-900 block mb-2 @error('depart_id') text-red-500 @enderror">
+        Departamento
+    </label>
+    <input type="text" name="depart_id" id="depart_id"
+        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('depart_id') border-red-500 @enderror"
+        value="{{ old('depart_id', $empleado->depart_id) }}">
+    @error('depart_id')
         <p class="text-red-500 text-sm mt-1">
             {{ $message }}
         </p>
