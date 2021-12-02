@@ -48,8 +48,9 @@ class EmpleController extends Controller
         $validados = request()->validate([
             'nombre' => 'required|max:255',
             'salario' => 'required|numeric:6,2',
-            'depart_id' => 'required'
+            'depart_id' => 'required|exists:depart,id'
         ]);
+
         return $validados;
 
     }

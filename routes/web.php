@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\EmpleController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,4 @@ Route::get('/emple/create', [EmpleController::class, 'create']);
 Route::post('/emple', [EmpleController::class, 'store'])
     ->name('emple.store');
 
+Route::get('/login', [UsuariosController::class, 'loginForm']);
