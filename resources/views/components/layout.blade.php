@@ -27,11 +27,28 @@
                     <nav>
                         <a class="hover:text-blue-500 hover:underline @if($home) font-semibold @endif" href="/">Inicio</a> |
                         <a class="hover:text-blue-500 hover:underline @if($emple) font-semibold @endif" href="/emple">Empleados</a> |
-                        <a class="hover:text-blue-500 hover:underline @if($depart) font-semibold @endif" href="/depart">Departamentos</a>
+                        <a class="hover:text-blue-500 hover:underline @if($depart) font-semibold @endif" href="/depart">Departamentos</a> |
+
+                        @if (App\Http\Controllers\UsuariosController::logueado())
+                            <a class="hover:text-blue-500 hover:underline" href="/logout">Logueado (cerrar sesion)</a>
+                            @else
+                                <a class="hover:text-blue-500 hover:underline" href="/login">Login</a>
+                        @endif
                     </nav>
                 </div>
             </header>
-            
+
+            @if (session()->has('error'))
+                <div class="bg-red-100 rounded-lg p-4 mt-4 mb-4 text-sm text-red-700" role="alert">
+                    <span class="font-semibold">Error:</span> {{ session('error') }}
+                </div>
+            @endif
+
+            @if (session()->has('success'))
+                <div class="bg-green-100 rounded-lg p-4 mt-4 mb-4 text-sm text-green-700" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
 
             <div class="mt-3 mb-3">
                 {{ $slot }}

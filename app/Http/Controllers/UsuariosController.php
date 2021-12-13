@@ -37,4 +37,10 @@ class UsuariosController extends Controller
     {
         return request()->session()->has('usuario');
     }
+
+    public function logout()
+    {
+        session()->forget('usuario');
+        return redirect('/')->with('success', 'El usuario ha cerrado la sesión.');
+    }
 }

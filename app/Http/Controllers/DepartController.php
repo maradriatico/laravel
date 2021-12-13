@@ -17,7 +17,14 @@ class DepartController extends Controller
 
     public function create(){
 
-        return view('depart.create');
+        $departamento = (object) [
+            'denominacion' => null,
+            'localidad' => null,
+        ];
+
+        return view('depart.create', [
+            'departamento' => $departamento,
+        ]);
     }
 
     public function store()
@@ -41,5 +48,41 @@ class DepartController extends Controller
         ]);
 
         return $validados;
+    }
+
+    public function edit($id)
+    {
+        $departamento = $this->findDepartamento($id);
+
+        return view('depart.edit', [
+            'departamento' => $departamento,
+        ]);
+    }
+
+    public function update($id)
+    {
+        $validados = $this->validar();
+        $this->findDepartamento($id);
+
+        DB::table('depart')
+            ->where('id', $id)
+            ->update([
+            'denominacion' => $validados['denominacion'],
+            'localidad' => $validados['localidad'],
+        ]);
+
+        return redirect('/depart')
+            ->with('success', 'Departamento modificado con éxito.');
+    }
+
+    private function findDepartamento($id)
+    {
+        $departamentos = DB::table('depart')
+            ->where('id', $id)
+            ->get();
+
+        abort_if($departamentos->isEmpty(), 404);
+
+        return $departamentos->first();
     }
 }
