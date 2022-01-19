@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\EmpleController;
 use App\Http\Controllers\UsuariosController;
@@ -59,3 +60,19 @@ Route::delete('/emple/{id}', [EmpleController::class, 'destroy']);
 Route::get('/login', [UsuariosController::class, 'loginForm']);
 Route::post('/login', [UsuariosController::class, 'login']);
 Route::get('/logout', [UsuariosController::class, 'logout']);
+
+
+Route::get('/alumnos', [AlumnosController::class, 'index']);
+Route::get('/alumnos/create', [AlumnosController::class, 'create']);
+Route::post('/alumnos', [AlumnosController::class, 'store'])
+    ->name('alumnos.store');
+
+Route::get('/alumnos/{id}/edit', [AlumnosController::class, 'edit']);
+Route::put('/alumnos/{id}', [AlumnosController::class, 'update'])
+    ->name('alumnos.update');
+
+Route::delete('/alumnos/{id}', [AlumnosController::class, 'destroy']);
+
+Route::get('/alumnos/criterios/{id}', [AlumnosController::class, 'actividad']);
+
+Route::get('/alumnos/index', [AlumnosController::class, 'final']);

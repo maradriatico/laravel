@@ -3,5 +3,4 @@
         <x-depart.form
             :departamento="$departamento"/>
     </form>
-
 </x-layout>

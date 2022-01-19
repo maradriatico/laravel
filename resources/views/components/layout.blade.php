@@ -23,11 +23,13 @@
                         $home = empty($segmentos);
                         $emple = !empty($segmentos) && $segmentos[0] == 'emple';
                         $depart = !empty($segmentos) && $segmentos[0] == 'depart';
+                        $alumn = !empty($segmentos) && $segmentos[0] == 'alumnos';
                     @endphp
                     <nav>
                         <a class="hover:text-blue-500 hover:underline @if($home) font-semibold @endif" href="/">Inicio</a> |
                         <a class="hover:text-blue-500 hover:underline @if($emple) font-semibold @endif" href="/emple">Empleados</a> |
                         <a class="hover:text-blue-500 hover:underline @if($depart) font-semibold @endif" href="/depart">Departamentos</a> |
+                        <a class="hover:text-blue-500 hover:underline @if($alumn) font-semibold @endif" href="/alumnos">Alumnos</a> |
 
                         @if (App\Http\Controllers\UsuariosController::logueado())
                             <a class="hover:text-blue-500 hover:underline" href="/logout">Logueado (cerrar sesion)</a>

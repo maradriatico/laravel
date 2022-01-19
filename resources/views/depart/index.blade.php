@@ -5,11 +5,18 @@
             <table>
                 <thead class="bg-gray-50">
                     <tr>
+                        @php
+                            $link = e("denominacion=" . old('denominacion') . "&localidad=" . old('localidad'));
+                        @endphp
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Denominación
+                            <a href="/depart?orden=denominacion&{!! $link !!}">
+                                Denominación
+                            </a>
                         </th>
                         <th class="px-6 py-2 text-xs text-gray-500">
-                            Localidad
+                            <a href="/depart?orden=localidad&{!! $link !!}">
+                                Localidad
+                            </a>
                         </th>
                         <th class="px-6 py-2 text-xs text-gray-500">
                             Editar
@@ -44,9 +51,11 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $departamentos->links() }}
             </div>
                 <a href="/depart/create" class="mt-4 text-blue-900 hover:underline">Insertar un nuevo departamento</a>
             </div>
         </div>
     </div>
+
 </x-layout>
