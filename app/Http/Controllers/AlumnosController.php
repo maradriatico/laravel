@@ -97,6 +97,7 @@ class AlumnosController extends Controller
     public function actividad($id)
     {
         $nota = DB::table('notas')
+            ->leftJoin('ccee AS c', 'ccee_id', '=', 'c.id')
             ->where('alumno_id', $id)
             ->get();
 
